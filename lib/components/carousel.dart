@@ -1,3 +1,4 @@
+import 'package:AniFree/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -32,13 +33,14 @@ class _CarouselState extends State<Carousel> {
               return Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: Colors.green,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15.0),
-                child: Image(image: AssetImage(imgUrl),fit: BoxFit.cover)
+              color: backgroundColor,
+              child: Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+                  child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Image(image: AssetImage(imgUrl),fit: BoxFit.cover)
+                ),
               ),
                 );
             });

@@ -11,9 +11,10 @@ class InfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 150,
+      color: backgroundColor,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        elevation: 4.0,
+        //elevation: 4.0,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

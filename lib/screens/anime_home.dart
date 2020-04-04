@@ -13,18 +13,19 @@ class AnimeHome extends StatelessWidget {
       body: Container(
           margin: EdgeInsets.all(15.0),
           child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Flexible(
-              flex: 1,
+            Container(
+              //color: Colors.red,
+              height: 60,
               child: CustomAppBar()
             ),
-            Flexible(
-              flex: 7,
+            Container(
+              //color: Colors.green,
+              height: 400,
               child: Carousel()
             ),
-            Flexible(
-              flex: 7,
+            Expanded(
               child: RecentAnime()
             )
           ],
