@@ -15,9 +15,18 @@ class AnimeHome extends StatelessWidget {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            CustomAppBar(),
-            Carousel(),
-            RecentAnime()
+            Expanded(
+              flex: 1,
+              child: CustomAppBar()
+            ),
+            Expanded(
+              flex: 4,
+              child: Carousel()
+            ),
+            Expanded(
+              flex: 6,
+              child: RecentAnime()
+            )
           ],
         ),
       ),
