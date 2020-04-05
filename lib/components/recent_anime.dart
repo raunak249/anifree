@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:AniFree/components/info_card.dart';
 import 'package:AniFree/constants.dart';
 
-class RecentAnime extends StatelessWidget {
-  final List imgList = ['assets/image1.jpg','assets/image2.jpg','assets/image3.jpg','assets/image4.jpg','assets/image5.jpg'];
-  final List animeNames = ['Mob Psycho 100','One Piece','Showa Genroku Rakugo Shinji','Boku no Hero Academia','Kakegurui'];
+class RecentAnime extends StatefulWidget {
+  final List imgList;
+  final List animeNames;
+  final List episodes;
+  final List links;
+  RecentAnime({this.imgList,this.animeNames,this.episodes,this.links});
+
+  @override
+  _RecentAnimeState createState() => _RecentAnimeState();
+}
+
+class _RecentAnimeState extends State<RecentAnime> {
   @override
   Widget build(BuildContext context) {
+    // print(widget.imgList);
+    // print(widget.animeNames);
     return Container(
       padding: EdgeInsets.only(top: 20.0),
       child: Column(
@@ -42,14 +53,15 @@ class RecentAnime extends StatelessWidget {
           Expanded(
             child: ListView.builder(
             padding: EdgeInsets.zero,
-            itemCount: imgList.length,
+            itemCount: widget.imgList.length,
             itemBuilder: (context,index){
               return Container(
                 margin: EdgeInsets.only(bottom: 10.0),
                 child: InfoCard(
-                  img:imgList[index],
+                  img:widget.imgList[index],
                   duration: '23m',
-                  title: animeNames[index],
+                  title: widget.animeNames[index],
+                  episode: widget.episodes[index],
                 ),
               );
             },

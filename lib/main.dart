@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:AniFree/screens/anime_home.dart';
+import 'package:AniFree/screens/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,9 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute : AnimeHome.id,
+      initialRoute : SplashScreen.id,
       routes: {
-        AnimeHome.id : (context) => AnimeHome()
+        AnimeHome.id : (context) => AnimeHome(),
+        SplashScreen.id : (context) => SplashScreen()
       },
     );
   }

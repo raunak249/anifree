@@ -12,6 +12,8 @@ dependencies:
   font_awesome_flutter: ^8.8.1
   cupertino_icons: ^0.1.2
   carousel_slider: ^1.4.1
+  http: ^0.12.0+4
+  animated_text_kit: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +30,11 @@ flutter:
      - family: Roboto
        fonts:
          - asset: fonts/Roboto-Regular.ttf
+
+     - family: OTR
+       fonts:
+         - asset: fonts/OvertheRainbow-Regular.ttf
+
+     - family: PressStart2P
+       fonts:
+         - asset: fonts/PressStart2P-Regular.ttf

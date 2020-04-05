@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 const Color backgroundColor = Color(0xFFF1F1F1);
 const Color iconColor = Color(0xFF757575);
+const Color cardColor = Colors.white;
+const Color appBarColor = Colors.white;
+const Color splashSceenColor = Colors.blueGrey;
 
 TextStyle mainTitleStyle = TextStyle(
                     color: Colors.black,
@@ -9,7 +12,6 @@ TextStyle mainTitleStyle = TextStyle(
                   );
 
 TextStyle subTitleStyle = TextStyle(
-                    fontWeight: FontWeight.bold,
                     color: Colors.black,
-                    fontSize: 20
+                    fontSize: 15.0
                   );
