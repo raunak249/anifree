@@ -4,6 +4,7 @@ const Color iconColor = Color(0xFF757575);
 const Color cardColor = Colors.white;
 const Color appBarColor = Colors.white;
 const Color splashSceenColor = Colors.blueGrey;
+const String HOME = 'https://anifree-api.herokuapp.com';
 
 TextStyle mainTitleStyle = TextStyle(
                     color: Colors.black,

@@ -1,3 +1,5 @@
+import 'package:AniFree/screens/episodes_page.dart';
+import 'package:AniFree/screens/watch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:AniFree/screens/anime_home.dart';
 import 'package:AniFree/screens/splashscreen.dart';
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
       routes: {
         AnimeHome.id : (context) => AnimeHome(),
         SplashScreen.id : (context) => SplashScreen(),
-        AboutAnime.id : (context) => AboutAnime()
+        AboutAnime.id : (context) => AboutAnime(),
+        EpisodesPage.id : (context) => EpisodesPage(),
+        WatchScreen.id : (context) => WatchScreen()
       },
     );
   }

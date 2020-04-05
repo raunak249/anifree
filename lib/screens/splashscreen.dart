@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   List popular_anime_images =[];
   List popular_anime_links =[];
   void getAnime() async {
-    recent_anime_data = await getRecentAnime('https://anifree-api.herokuapp.com/recent_anime');
+    recent_anime_data = await fetch(HOME + '/recent_anime');
     recent_anime_decoded = jsonDecode(recent_anime_data);
     for (var item in recent_anime_decoded) {
       recent_anime_names.add(item['name']);
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
       recent_anime_episodes.add(item['episode_num']);
       recent_anime_links.add(home + item['link']);
     }
-    popular_anime_data = await getRecentAnime('https://anifree-api.herokuapp.com/popular_anime');
+    popular_anime_data = await fetch(HOME + '/popular_anime');
     popular_anime_decoded = jsonDecode(popular_anime_data);
     for (var item in popular_anime_decoded) {
       popular_anime_names.add(item['name']);
