@@ -1,6 +1,7 @@
 import 'package:AniFree/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:AniFree/screens/about_anime.dart';
 
 class Carousel extends StatefulWidget {
   List imgList;
@@ -31,44 +32,53 @@ class _CarouselState extends State<Carousel> {
         items: widget.imgList.asMap().entries.map((entry){
           return Builder(
             builder: (context){
-              return Container(
-              width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
-              color: backgroundColor,
-              child: Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Container(
-                      alignment: Alignment.bottomLeft,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(entry.value),
-                          fit: BoxFit.cover
-                        )
-                      ),
-                      child: Container(
-                        child: Text(
-                          widget.animeNames[entry.key],
-                          style: TextStyle(
-                            shadows: [Shadow(
-                                          blurRadius: 10.0,
-                                          color: Colors.black,
-                                          offset: Offset(5.0, 5.0),
-                                          ),
-                                      ],
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15.0,
-                            color: Colors.white
+              return FlatButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAnime(animeLink: widget.animeLinks[entry.key],imageLink : entry.value)));
+                },
+                padding: EdgeInsets.zero,
+                child: Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
+                color: backgroundColor,
+                child: Hero(
+                      tag: entry.value,
+                      child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: Container(
+                          alignment: Alignment.bottomLeft,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(entry.value),
+                              fit: BoxFit.cover
+                            )
                           ),
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-                      ),
-                    )
+                          child: Container(
+                            child: Text(
+                              widget.animeNames[entry.key],
+                              style: TextStyle(
+                                shadows: [Shadow(
+                                              blurRadius: 10.0,
+                                              color: Colors.black,
+                                              offset: Offset(5.0, 5.0),
+                                              ),
+                                          ],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.0,
+                                color: Colors.white
+                              ),
+                            ),
+                            padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+                          ),
+                        )
+                    ),
+                  ),
                 ),
-              ),
-            );
+            ),
+              );
             });
         }).toList()
       ),    

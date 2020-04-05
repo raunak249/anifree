@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:AniFree/screens/anime_home.dart';
 import 'package:AniFree/screens/splashscreen.dart';
+import 'package:AniFree/screens/about_anime.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       initialRoute : SplashScreen.id,
       routes: {
         AnimeHome.id : (context) => AnimeHome(),
-        SplashScreen.id : (context) => SplashScreen()
+        SplashScreen.id : (context) => SplashScreen(),
+        AboutAnime.id : (context) => AboutAnime()
       },
     );
   }
