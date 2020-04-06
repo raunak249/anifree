@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   var popular_anime_data;
   var recent_anime_decoded;
   var popular_anime_decoded;
-  String home = "https://animekisa.tv";
+  String home = "https://www.gogoanime.io";
   List recent_anime_names = [];
   List recent_anime_images =[];
   List recent_anime_episodes = [];
@@ -30,16 +30,16 @@ class _SplashScreenState extends State<SplashScreen> {
     recent_anime_decoded = jsonDecode(recent_anime_data);
     for (var item in recent_anime_decoded) {
       recent_anime_names.add(item['name']);
-      recent_anime_images.add(home + item['image_link']);
+      recent_anime_images.add(item['image_link']);
       recent_anime_episodes.add(item['episode_num']);
-      recent_anime_links.add(home + item['link']);
+      recent_anime_links.add(item['link']);
     }
     popular_anime_data = await fetch(HOME + '/popular_anime');
     popular_anime_decoded = jsonDecode(popular_anime_data);
     for (var item in popular_anime_decoded) {
       popular_anime_names.add(item['name']);
-      popular_anime_images.add(home + item['image_link']);
-      popular_anime_links.add(home + item['anime_link']);
+      popular_anime_images.add(item['image_link']);
+      popular_anime_links.add(item['anime_link']);
     }
     Navigator.push(context, MaterialPageRoute(builder: (context) => AnimeHome(recent_anime_names: recent_anime_names,recent_anime_images: recent_anime_images,recent_anime_episodes: recent_anime_episodes,recent_anime_links: recent_anime_links,popular_anime_images: popular_anime_images, popular_anime_links: popular_anime_links ,popular_anime_names: popular_anime_names)));
   }

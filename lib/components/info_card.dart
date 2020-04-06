@@ -14,6 +14,7 @@ class InfoCard extends StatelessWidget {
       height: 150,
       color: backgroundColor,
       child: Card(
+        elevation: 5,
         color: cardColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         //elevation: 4.0,
@@ -39,7 +40,8 @@ class InfoCard extends StatelessWidget {
                     children: <Widget>[
                     Text(
                     title,
-                    style: subTitleStyle),
+                    style: cardTextStyle
+                    ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                       decoration: BoxDecoration(
@@ -50,7 +52,7 @@ class InfoCard extends StatelessWidget {
                       episode,
                       style: subTitleStyle.copyWith(
                         color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                         fontSize: 13
                       ),
                       ),

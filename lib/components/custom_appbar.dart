@@ -33,7 +33,6 @@ class CustomAppBar extends StatelessWidget {
               child: Text(
                 'Discover',
                 style: TextStyle(
-                  fontFamily: 'Roboto',
                   fontSize: 20.0,
                   color: iconColor
                 ),

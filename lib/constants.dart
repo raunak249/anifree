@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-const Color backgroundColor = Color(0xFFF1F1F1);
-const Color iconColor = Color(0xFF757575);
-const Color cardColor = Colors.white;
-const Color appBarColor = Colors.white;
+const Color backgroundColor = Color(0xFF303030);
+const Color iconColor = Colors.white;
+const Color cardColor = Color(0xFF424242);
+const Color appBarColor = Color(0xFF424242);
 const Color splashSceenColor = Colors.blueGrey;
 const String HOME = 'https://anifree-api.herokuapp.com';
 
+
+TextStyle cardTextStyle = TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white
+                    );
 TextStyle mainTitleStyle = TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
                     fontSize: 25.0
                   );
 

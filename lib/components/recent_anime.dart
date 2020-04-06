@@ -1,3 +1,4 @@
+import 'package:AniFree/screens/watch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:AniFree/components/info_card.dart';
 import 'package:AniFree/constants.dart';
@@ -40,7 +41,7 @@ class _RecentAnimeState extends State<RecentAnime> {
                       Text(
                         'Recently added anime',
                         style:TextStyle(
-                        color : iconColor,
+                        color : Colors.white38,
                         fontWeight: FontWeight.w200
                         ),
                       )
@@ -55,13 +56,19 @@ class _RecentAnimeState extends State<RecentAnime> {
             padding: EdgeInsets.zero,
             itemCount: widget.imgList.length,
             itemBuilder: (context,index){
-              return Container(
-                margin: EdgeInsets.only(bottom: 10.0),
-                child: InfoCard(
-                  img:widget.imgList[index],
-                  duration: '23m',
-                  title: widget.animeNames[index],
-                  episode: widget.episodes[index],
+              return FlatButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(episodeLink: widget.links[index])));
+                  },
+                  child: Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: InfoCard(
+                    img:widget.imgList[index],
+                    duration: '23m',
+                    title: widget.animeNames[index],
+                    episode: widget.episodes[index],
+                  ),
                 ),
               );
             },
