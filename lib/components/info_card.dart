@@ -6,9 +6,9 @@ class InfoCard extends StatelessWidget {
   final String title;
   final String duration;
   final String episode;
-  InfoCard({this.img,this.title,this.duration,this.episode}); 
+  InfoCard({this.img, this.title, this.duration, this.episode = ''});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 150,
@@ -16,50 +16,47 @@ class InfoCard extends StatelessWidget {
       child: Card(
         elevation: 5,
         color: cardColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         //elevation: 4.0,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
-                flex : 3,
-                child: Container(
+              flex: 3,
+              child: Container(
                 child: ClipRRect(
-                  child: Image(image: NetworkImage(img),fit: BoxFit.cover),
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0),bottomLeft: Radius.circular(10.0)),
+                  child: Image(image: NetworkImage(img), fit: BoxFit.cover),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(5.0),
+                      bottomLeft: Radius.circular(5.0)),
                 ),
               ),
             ),
             Expanded(
-                flex  :6,
-                child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-                  child: Column(
+              flex: 6,
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                    Text(
-                    title,
-                    style: cardTextStyle
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        borderRadius: BorderRadius.circular(3.0)
-                      ),
-                      child: Text(
-                      episode,
-                      style: subTitleStyle.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 13
-                      ),
-                      ),
-                    )
-                    ]
-                  ),
-                ),
+                      Text(title, style: cardTextStyle),
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                            borderRadius: BorderRadius.circular(3.0)),
+                        child: Text(
+                          episode,
+                          style: subTitleStyle.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13),
+                        ),
+                      )
+                    ]),
+              ),
             ),
           ],
         ),

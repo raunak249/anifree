@@ -28,13 +28,13 @@ class EpisodesPage extends StatelessWidget {
                         },
                         padding: EdgeInsets.zero,
                         child: Card(
+                          elevation: 5,
+                          color: cardColor,
                           child: Center(
                             child: Text(
                               'Episode ' + episodeNames[index],
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 20
-                              ),
+                              style: cardTextStyle,
                             ),
                           ),
                         ),

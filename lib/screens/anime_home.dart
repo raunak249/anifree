@@ -1,3 +1,4 @@
+import 'package:AniFree/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:AniFree/components/carousel.dart';
 import 'package:AniFree/components/custom_appbar.dart';
@@ -5,18 +6,20 @@ import 'package:AniFree/components/recent_anime.dart';
 import 'package:AniFree/constants.dart';
 
 class AnimeHome extends StatelessWidget {
+  static final List dataItems = ['Hi','Testing','Side Menu'];
   static String id = 'anime_screen';
-  final List recent_anime_names;
-  final List recent_anime_images;
-  final List recent_anime_episodes;
-  final List recent_anime_links;
-  final List popular_anime_names;
-  final List popular_anime_links;
-  final List popular_anime_images;
-  AnimeHome({this.recent_anime_names,this.recent_anime_images,this.recent_anime_episodes,this.recent_anime_links,this.popular_anime_images,this.popular_anime_links,this.popular_anime_names});  
+  final List recentAnimeNames;
+  final List recentAnimeImages;
+  final List recentAnimeEpisodes;
+  final List recentAnimeLinks;
+  final List popularAnimeNames;
+  final List popularAnimeLinks;
+  final List popularAnimeImages;
+  AnimeHome({this.recentAnimeNames,this.recentAnimeImages,this.recentAnimeEpisodes,this.recentAnimeLinks,this.popularAnimeImages,this.popularAnimeLinks,this.popularAnimeNames});  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SideMenu(),
       backgroundColor: backgroundColor,
       body: SafeArea(
             child: Container(
@@ -26,19 +29,62 @@ class AnimeHome extends StatelessWidget {
             children: <Widget>[
               Container(
                 //color: Colors.red,
-                height: 45,
+                height: 50,
                 child: CustomAppBar()
               ),
               Container(
                 //color: Colors.green,
                 height: 380,
-                child: Carousel(imgList: popular_anime_images,animeLinks: popular_anime_links,animeNames: popular_anime_names)
+                child: Carousel(imgList: popularAnimeImages,animeLinks: popularAnimeLinks,animeNames: popularAnimeNames)
               ),
               Expanded(
-                child: RecentAnime(animeNames: recent_anime_names,imgList: recent_anime_images,episodes: recent_anime_episodes,links: recent_anime_links)
+                child: RecentAnime(animeNames: recentAnimeNames,imgList: recentAnimeImages,episodes: recentAnimeEpisodes,links: recentAnimeLinks)
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SideMenu extends StatelessWidget {
+  const SideMenu({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Container(
+        color: backgroundColor,
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              padding: EdgeInsets.zero,
+              child: Container(
+                color : Colors.white,
+                child : Image.asset('assets/header.jpg',fit:BoxFit.fill))
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(vertical: 10.0),
+              child: ListTile(
+                leading: Icon(Icons.search,color: iconColor),
+                title: Text('Search',style: cardTextStyle),
+                onTap: (){
+                  Navigator.pushNamed(context, SearchScreen.id);
+                },
+              ),
+            ),
+            Container(
+              child: ListTile(
+                leading: Icon(Icons.label,color: iconColor),
+                title: Text('Categories',style: cardTextStyle),
+                onTap: (){},
+              ),
+            )
+          ],
         ),
       ),
     );

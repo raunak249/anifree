@@ -7,9 +7,10 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class AboutAnime extends StatefulWidget {
   static String id = 'about_anime';
+  final String animeName;
   final String animeLink;
   final String imageLink;
-  AboutAnime({this.animeLink,this.imageLink});
+  AboutAnime({this.animeLink,this.imageLink,this.animeName});
 
   @override
   _AboutAnimeState createState() => _AboutAnimeState();
@@ -51,34 +52,47 @@ class _AboutAnimeState extends State<AboutAnime> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Hero(
-                  tag: widget.imageLink,
-                  child: Container(
-                    height: 400,
-                    child: Image(
-                    image: NetworkImage(widget.imageLink),
-                    fit: BoxFit.cover,
+              Expanded(
+                    flex : 6,
+                    child: Container(
+                      margin: EdgeInsets.only(top : 20.0,left: 20.0,right: 20.0),
+                      child: Card(
+                        elevation: 10.0,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                        child: Hero(
+                        tag: widget.imageLink,
+                        child: Container(
+                          height: 500,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(30.0),
+                            child: Image(
+                            image: NetworkImage(widget.imageLink),
+                            fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                ),
+                      ),
                     ),
-                  ),
               ),
               Expanded(
-                flex: 8,
+                flex: 6,
                 child: Container(
-                  color: backgroundColor,
                   padding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-                  child: Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
                   child: SingleChildScrollView(
                   padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text('Synopsis',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0
-                      )
+                      Text(
+                        widget.animeName,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                       SizedBox(height: 20),
                       Text(
@@ -86,14 +100,13 @@ class _AboutAnimeState extends State<AboutAnime> {
                         textAlign: TextAlign.center,
                         style: subTitleStyle.copyWith(
                           fontSize:16.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white
                         ),
                         ),
                     ],
                   ),
                       ),
-                    ),
                 ),
               ),
               Expanded(

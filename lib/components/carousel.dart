@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:AniFree/screens/about_anime.dart';
 
 class Carousel extends StatefulWidget {
-  List imgList;
-  List animeNames;
-  List animeLinks;
+  final List imgList;
+  final List animeNames;
+  final List animeLinks;
   Carousel({this.imgList,this.animeLinks,this.animeNames});
   @override
   _CarouselState createState() => _CarouselState();
@@ -34,7 +34,7 @@ class _CarouselState extends State<Carousel> {
             builder: (context){
               return FlatButton(
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAnime(animeLink: widget.animeLinks[entry.key],imageLink : entry.value)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAnime(animeName: widget.animeNames[entry.key],animeLink: widget.animeLinks[entry.key],imageLink : entry.value)));
                 },
                 padding: EdgeInsets.zero,
                 child: Container(
@@ -44,6 +44,7 @@ class _CarouselState extends State<Carousel> {
                 child: Hero(
                       tag: entry.value,
                       child: Card(
+                      color: cardColor,
                       elevation: 5,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
                       child: ClipRRect(

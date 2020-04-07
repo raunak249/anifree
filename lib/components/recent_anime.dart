@@ -1,7 +1,6 @@
-import 'package:AniFree/screens/watch_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:AniFree/components/info_card.dart';
 import 'package:AniFree/constants.dart';
+import 'package:AniFree/components/list_items.dart';
 
 class RecentAnime extends StatefulWidget {
   final List imgList;
@@ -52,27 +51,7 @@ class _RecentAnimeState extends State<RecentAnime> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: widget.imgList.length,
-            itemBuilder: (context,index){
-              return FlatButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(episodeLink: widget.links[index])));
-                  },
-                  child: Container(
-                  margin: EdgeInsets.only(bottom: 10.0),
-                  child: InfoCard(
-                    img:widget.imgList[index],
-                    duration: '23m',
-                    title: widget.animeNames[index],
-                    episode: widget.episodes[index],
-                  ),
-                ),
-              );
-            },
-            ),
+            child: ListItems(imgList: widget.imgList,links: widget.links,animeNames: widget.animeNames,episodes: widget.episodes),
           )
           //InfoCard(img: 'assets/image1.jpg',duration: '23m',title: 'MOB PSYCHO 100'),
           //InfoCard()
@@ -81,3 +60,4 @@ class _RecentAnimeState extends State<RecentAnime> {
     );
   }
 }
+
