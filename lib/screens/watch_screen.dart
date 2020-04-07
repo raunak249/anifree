@@ -8,7 +8,6 @@ import 'package:video_player/video_player.dart';
 class WatchScreen extends StatefulWidget {
   static String id = 'watch_screen';
   final String episodeLink;
-  
 
   WatchScreen({this.episodeLink});
 
@@ -29,17 +28,17 @@ class _WatchScreenState extends State<WatchScreen> {
     videoLinkData = await fetch(HOME + '/video_link?url=' + url);
     decodedVideoLinkData = jsonDecode(videoLinkData);
     videoLink = decodedVideoLinkData['video_link'];
-    initVideoController(videoLink);
+    print(videoLink);
+    //initVideoController(videoLink);
   }
 
-  void initVideoController(videoLink){
+  void initVideoController(videoLink) {
     controller = VideoPlayerController.network(videoLink);
-    
+
     chewieController = ChewieController(
-    videoPlayerController: controller,
-    aspectRatio: 3 / 2,
-    autoPlay: true,
-    looping: true,
+      videoPlayerController: controller,
+      aspectRatio: 16 / 9,
+      autoPlay: true,
     );
     setState(() {
       isLoading = false;
@@ -54,22 +53,20 @@ class _WatchScreenState extends State<WatchScreen> {
 
   @override
   void dispose() {
-  controller.dispose();
-  chewieController.dispose();
-  super.dispose();
-}
+    // controller.dispose();
+    // chewieController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-         child : isLoading ? Container(
-           color: backgroundColor,
-           child: Center(
-             child: CircularProgressIndicator()
-             )
-          ):Chewie(
-            controller: chewieController,
-          )
-      );
+        child: isLoading
+            ? Container(
+                color: backgroundColor,
+                child: Center(child: CircularProgressIndicator()))
+            : Chewie(
+                controller: chewieController,
+              ));
   }
 }

@@ -89,7 +89,7 @@ class _AboutAnimeState extends State<AboutAnime> {
                         widget.animeName,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 23,
                           color: Colors.white,
                           fontWeight: FontWeight.bold
                         ),

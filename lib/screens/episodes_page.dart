@@ -32,7 +32,7 @@ class EpisodesPage extends StatelessWidget {
                           color: cardColor,
                           child: Center(
                             child: Text(
-                              'Episode ' + episodeNames[index],
+                              'Episode' + episodeNames[index].toString().substring(2),
                               textAlign: TextAlign.center,
                               style: cardTextStyle,
                             ),
