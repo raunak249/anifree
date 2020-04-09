@@ -1,4 +1,5 @@
 import 'package:AniFree/constants.dart';
+import 'package:AniFree/screens/watch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:AniFree/api/api.dart';
 import 'package:AniFree/screens/episodes_page.dart';
@@ -19,8 +20,6 @@ class AboutAnime extends StatefulWidget {
 class _AboutAnimeState extends State<AboutAnime> {
   bool isLoading = false;
   String desc = '';
-  List categories = [];
-  List episodeLinks = [];
   List episodeNames = [];
   var animeInfo;
   var animeInfoDecoded;
@@ -29,8 +28,6 @@ class _AboutAnimeState extends State<AboutAnime> {
     animeInfo = await fetch(HOME + '/anime_info?url=' + url);
     animeInfoDecoded = jsonDecode(animeInfo);
     desc = animeInfoDecoded['desc'];
-    categories = animeInfoDecoded['categories'];
-    episodeLinks = animeInfoDecoded['episode_links'];
     episodeNames = animeInfoDecoded['episode_names'];
     setState(() {
       isLoading = false;
@@ -114,7 +111,7 @@ class _AboutAnimeState extends State<AboutAnime> {
                 child: FlatButton(
                     padding: EdgeInsets.zero,
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => EpisodesPage(episodeLinks: episodeLinks,episodeNames: episodeNames)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(animeName: widget.animeName)));
                     },
                     child: Container(
                     color: Colors.blueAccent,

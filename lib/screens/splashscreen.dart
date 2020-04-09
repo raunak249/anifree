@@ -21,7 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
   List recentAnimeNames = [];
   List recentAnimeImages =[];
   List recentAnimeEpisodes = [];
-  List recentAnimeLinks =[];
   List popularAnimeNames = [];
   List popularAnimeImages =[];
   List popularAnimeLinks =[];
@@ -32,7 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
       recentAnimeNames.add(item['name']);
       recentAnimeImages.add(item['image_link']);
       recentAnimeEpisodes.add(item['episode_num']);
-      recentAnimeLinks.add(item['link']);
     }
     popularAnimeData = await fetch(HOME + '/popular_anime');
     popularAnimeDecoded = jsonDecode(popularAnimeData);
@@ -41,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
       popularAnimeImages.add(item['image_link']);
       popularAnimeLinks.add(item['anime_link']);
     }
-    Navigator.push(context, MaterialPageRoute(builder: (context) => AnimeHome(recentAnimeNames: recentAnimeNames,recentAnimeImages: recentAnimeImages,recentAnimeEpisodes: recentAnimeEpisodes,recentAnimeLinks: recentAnimeLinks,popularAnimeImages: popularAnimeImages, popularAnimeLinks: popularAnimeLinks ,popularAnimeNames: popularAnimeNames)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AnimeHome(recentAnimeNames: recentAnimeNames,recentAnimeImages: recentAnimeImages,recentAnimeEpisodes: recentAnimeEpisodes,popularAnimeImages: popularAnimeImages, popularAnimeLinks: popularAnimeLinks ,popularAnimeNames: popularAnimeNames)));
   }
   
   @override

@@ -4,11 +4,10 @@ import 'package:AniFree/components/info_card.dart';
 
 class ListItems extends StatelessWidget {
   final List imgList;
-  final List links;
   final List animeNames;
   final List episodes;
 
-  ListItems({this.imgList,this.links,this.animeNames,this.episodes});
+  ListItems({this.imgList,this.animeNames,this.episodes});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class ListItems extends StatelessWidget {
       return FlatButton(
           padding: EdgeInsets.zero,
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(episodeLink: links[index])));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(animeName : animeNames[index])));
           },
           child: Container(
           margin: EdgeInsets.only(bottom: 10.0),

@@ -24,7 +24,7 @@ class EpisodesPage extends StatelessWidget {
                       margin: EdgeInsets.only(bottom: 10.0),
                       child: FlatButton(
                         onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>WatchScreen(episodeLink:episodeLinks[index])));
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=>WatchScreen(episodeLink:episodeLinks[index])));
                         },
                         padding: EdgeInsets.zero,
                         child: Card(

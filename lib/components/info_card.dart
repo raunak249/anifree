@@ -45,12 +45,12 @@ class InfoCard extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
-                            color: Colors.blueAccent,
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(3.0)),
                         child: Text(
                           episode,
                           style: subTitleStyle.copyWith(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                               fontSize: 13),
                         ),

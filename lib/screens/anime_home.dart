@@ -11,11 +11,10 @@ class AnimeHome extends StatelessWidget {
   final List recentAnimeNames;
   final List recentAnimeImages;
   final List recentAnimeEpisodes;
-  final List recentAnimeLinks;
   final List popularAnimeNames;
   final List popularAnimeLinks;
   final List popularAnimeImages;
-  AnimeHome({this.recentAnimeNames,this.recentAnimeImages,this.recentAnimeEpisodes,this.recentAnimeLinks,this.popularAnimeImages,this.popularAnimeLinks,this.popularAnimeNames});  
+  AnimeHome({this.recentAnimeNames,this.recentAnimeImages,this.recentAnimeEpisodes,this.popularAnimeImages,this.popularAnimeLinks,this.popularAnimeNames});  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +37,7 @@ class AnimeHome extends StatelessWidget {
                 child: Carousel(imgList: popularAnimeImages,animeLinks: popularAnimeLinks,animeNames: popularAnimeNames)
               ),
               Expanded(
-                child: RecentAnime(animeNames: recentAnimeNames,imgList: recentAnimeImages,episodes: recentAnimeEpisodes,links: recentAnimeLinks)
+                child: RecentAnime(animeNames: recentAnimeNames,imgList: recentAnimeImages,episodes: recentAnimeEpisodes)
               )
             ],
           ),
@@ -57,7 +56,7 @@ class SideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: backgroundColor,
+        color: sideBarColor,
         child: ListView(
           children: <Widget>[
             DrawerHeader(
