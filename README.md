@@ -1,7 +1,6 @@
 # AniFree
 
 AniFree is an unofficial android application built using Google's Flutter framework to explore anime titles and makes them available for watching through multiple sources and websites.
-The UI is inspired from https://github.com/avuenja/anime_app. 
 
 <p float="left">
   <img src="/screenshots/Screenshot_2020-04-11-19-02-42-445_com.example.anifree.jpg?raw=true" width="200" />
@@ -22,3 +21,5 @@ The UI is inspired from https://github.com/avuenja/anime_app.
 5. Adding more sources.
 6. A native video player within the app.
 7. Update the About-Anime page to have more info.
+
+Design inspired by [Mehdi Trahim](https://dribbble.com/shots/6537538-Anime-App-UI?utm_source=Clipboard_Shot&utm_campaign=mehdi7&utm_content=Anime%20App%20UI&utm_medium=Social_Share)
