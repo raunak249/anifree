@@ -37,7 +37,7 @@ class CustomAppBar extends StatelessWidget {
                     'Anifree',
                     style: TextStyle(
                       fontSize: 20.0,
-                      color: iconColor
+                      color: lightFont
                     ),
                     ),
                 ),

@@ -6,7 +6,8 @@ class RecentAnime extends StatefulWidget {
   final List imgList;
   final List animeNames;
   final List episodes;
-  RecentAnime({this.imgList,this.animeNames,this.episodes});
+  final List timeUntilNext;
+  RecentAnime({this.imgList,this.animeNames,this.episodes,this.timeUntilNext});
 
   @override
   _RecentAnimeState createState() => _RecentAnimeState();
@@ -39,8 +40,8 @@ class _RecentAnimeState extends State<RecentAnime> {
                       Text(
                         'Recently added anime',
                         style:TextStyle(
-                        color : Colors.black87,
-                        fontWeight: FontWeight.w200
+                        fontWeight: FontWeight.w200,
+                        color: lightFont
                         ),
                       )
                     ],
@@ -50,7 +51,7 @@ class _RecentAnimeState extends State<RecentAnime> {
             ),
           ),
           Expanded(
-            child: ListItems(imgList: widget.imgList,animeNames: widget.animeNames,episodes: widget.episodes),
+            child: ListItems(imgList: widget.imgList,animeNames: widget.animeNames,episodes: widget.episodes,timeUntilNext: widget.timeUntilNext)
           )
           //InfoCard(img: 'assets/image1.jpg',duration: '23m',title: 'MOB PSYCHO 100'),
           //InfoCard()

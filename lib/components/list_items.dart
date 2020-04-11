@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:AniFree/screens/watch_screen.dart';
 import 'package:AniFree/components/info_card.dart';
+import 'package:AniFree/components/site_selector.dart';
 
 class ListItems extends StatelessWidget {
   final List imgList;
   final List animeNames;
   final List episodes;
+  final List timeUntilNext;
 
-  ListItems({this.imgList,this.animeNames,this.episodes});
+  ListItems({this.imgList,this.animeNames,this.episodes,this.timeUntilNext});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +19,20 @@ class ListItems extends StatelessWidget {
       return FlatButton(
           padding: EdgeInsets.zero,
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(animeName : animeNames[index])));
+            showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SiteSelector(animeName: animeNames[index]);
+                      });
           },
           child: Container(
           margin: EdgeInsets.only(bottom: 10.0),
           child: InfoCard(
             img:imgList[index],
             duration: '23m',
+            timeUntilNext: timeUntilNext[index],
             title: animeNames[index],
-            episode: episodes[index],
+            episode: episodes[index].toString(),
           ),
         ),
       );

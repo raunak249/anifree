@@ -6,7 +6,13 @@ class InfoCard extends StatelessWidget {
   final String title;
   final String duration;
   final String episode;
-  InfoCard({this.img, this.title, this.duration, this.episode = ''});
+  final int timeUntilNext;
+  InfoCard(
+      {this.img,
+      this.title,
+      this.duration,
+      this.episode = '',
+      this.timeUntilNext});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,7 @@ class InfoCard extends StatelessWidget {
       height: 150,
       color: backgroundColor,
       child: Card(
-        elevation: 5,
+        elevation: 1,
         color: cardColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         //elevation: 4.0,
@@ -41,20 +47,34 @@ class InfoCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(title, style: cardTextStyle),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
+                      Text(
+                        'Episode ' + episode,
+                        style: subTitleStyle.copyWith(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(3.0)),
-                        child: Text(
-                          episode,
-                          style: subTitleStyle.copyWith(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13),
+                      ),
+                      Container(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          decoration: BoxDecoration(
+                              color: Color(0xffF4717F),
+                              borderRadius: BorderRadius.circular(3.0)),
+                          child: Text(
+                            'EP' +
+                                (int.parse(episode) + 1).toString() +
+                                ' in ' +
+                                timeUntilNext.toString() +
+                                ' days',
+                            style: subTitleStyle.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13),
+                          ),
                         ),
-                      )
+                      ),
                     ]),
               ),
             ),

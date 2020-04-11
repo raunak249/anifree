@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:AniFree/screens/anime_home.dart';
 import 'package:AniFree/screens/splashscreen.dart';
 import 'package:AniFree/screens/about_anime.dart';
+import 'package:AniFree/constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Montserrat'),
+      theme: ThemeData(fontFamily: 'Montserrat',unselectedWidgetColor: lightFont),
       debugShowCheckedModeBanner: false,
       initialRoute : SplashScreen.id,
       routes: {
