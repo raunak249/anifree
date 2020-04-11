@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Container(
-                alignment: Alignment.center,
+                alignment: Alignment.centerLeft,
                 child: IconButton(
                   icon: Icon(
                     Icons.menu,
@@ -30,35 +30,22 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 8,
-              child: Center(
-                child: Container(
-                  child: Text(
-                    'Anifree',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: lightFont
-                    ),
-                    ),
-                ),
+              flex: 5,
+              child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  'Anifree',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: lightFont
+                  ),
+                  ),
               ),
             ),
             Expanded(
               flex: 2,
-              child: Container(
-                alignment: Alignment.center,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.account_circle,
-                    size: 30.0,
-                    color: iconColor,
-                  ),
-                  onPressed: (){
-                    //TODO Account button functionality
-                  }
-                ),
-              ),
-            )
+              child: Container(),
+            ),
           ],
         ),
       ),

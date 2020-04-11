@@ -33,6 +33,7 @@ class _SiteSelectorState extends State<SiteSelector> {
                     onChanged: (value) {
                       setState(() {
                         siteSelected = value;
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=>NativePlayer()));
                         Navigator.push(context, MaterialPageRoute(builder: (context) => WatchScreen(animeName: widget.animeName,siteSelected: siteSelected)));
                       });
                     }),

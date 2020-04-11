@@ -94,13 +94,6 @@ class SideMenu extends StatelessWidget {
                 },
               ),
             ),
-            Container(
-              child: ListTile(
-                leading: Icon(Icons.label, color: iconColor),
-                title: Text('Categories', style: cardTextStyle),
-                onTap: () {},
-              ),
-            )
           ],
         ),
       ),
